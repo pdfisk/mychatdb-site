@@ -14,8 +14,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
     <meta name="msapplication-tap-highlight" content="no"/>
-    <link rel="apple-touch-icon" href="resource/mychatdb/app.png"/>
-    <link rel="icon" sizes="192x192" href="resource/mychatdb/app.png">
+    <link rel="apple-touch-icon" href="resource/icons/favicon.ico"/>
 
     <!-- Disable chrome translation requests and automatic phone number linking -->
     <meta name="google" value="notranslate"/>
@@ -39,35 +38,11 @@
 
     <title>MyChatDB</title>
     <noscript>
-        <meta http-equiv="refresh" content="0; url=mychatdb/nojs.html"/>
+        <meta http-equiv="refresh" content="0; url=${appPath}nojs.html"/>
     </noscript>
-    <script type="text/javascript" src="resource/js/brython.js"></script>
-    <script type="text/javascript" src="resource/js/brython_stdlib.js"></script>
-    <script type="text/python">
-        import sys
-        from browser import window
-        from io import StringIO
-
-        print("Hello World")
-
-        def brython_eval(code):
-            old_stdout = sys.stdout
-            old_stderr = sys.stderr
-            buffer = StringIO()
-            sys.stdout = buffer
-            sys.stderr = buffer
-            try:
-                exec(code)
-                result = buffer.getvalue()
-            except Exception as e:
-                result = str(e)
-            finally:
-                sys.stdout = old_stdout
-                sys.stderr = old_stderr
-            return result
-        window.brython_eval = brython_eval
-    </script>
-    
+    <script type="text/javascript" src="js/brython.js"></script>
+    <script type="text/javascript" src="js/brython_stdlib.js"></script>
+    ${preBootJs}
     <script type="text/javascript" src="mychatdb/index.js"></script>
 
 </head>
