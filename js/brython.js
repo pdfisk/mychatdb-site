@@ -213,8 +213,8 @@ $B.unicode_bidi_whitespace=[9,10,11,12,13,28,29,30,31,32,133,5760,8192,8193,8194
 ;
 __BRYTHON__.implementation=[3,13,2,'dev',0]
 __BRYTHON__.version_info=[3,13,0,'final',0]
-__BRYTHON__.compiled_date="2025-07-23T04:53:58Z"
-__BRYTHON__.timestamp=1753200424
+__BRYTHON__.compiled_date="2025-07-25T18:41:13Z"
+__BRYTHON__.timestamp=1753468936
 __BRYTHON__.builtin_module_names=["_ajax","_ast","_base64","_binascii","_io_classes","_json","_jsre","_locale","_multiprocessing","_posixsubprocess","_profile","_random","_sre","_sre_utils","_string","_strptime","_svg","_symtable","_tokenize","_webcomponent","_webworker","_zlib_utils","array","builtins","dis","encoding_cp932","hashlib","html_parser","marshal","math","modulefinder","posix","pyexpat","python_re","unicodedata","xml_helpers","xml_parser"];
 ;
 
@@ -3443,11 +3443,6 @@ var res
 if(hash_method===_b_.object.__hash__){if(_b_.type.__getattribute__(klass,'__eq__')!==_b_.object.__eq__){throw _b_.TypeError.$factory("unhashable type: '"+$B.class_name(obj)+"'",'hash')}else{
 return obj.__hashvalue__=check_int(_b_.object.__hash__(obj))}}else{
 return check_int($B.$call(hash_method)(obj))}}
-_b_.board=function(){var $ns=$B.args('print',0,{},[],arguments,{},'args','kw')
-var kw=$ns['kw'],end=_b_.dict.get(kw,'end','\n'),sep=_b_.dict.get(kw,'sep',' '),file=_b_.dict.get(kw,'file',$B.get_stdout())
-var args=$ns['args'],writer=$B.$getattr(file,'write')
-console.log('BOARD',args);
-return None;}
 var help=_b_.help=function(obj){if(obj===undefined){obj='help'}
 if(typeof obj=='string'){var lib_url='https://docs.python.org/3/library'
 var parts=obj.split('.'),head=[],url
