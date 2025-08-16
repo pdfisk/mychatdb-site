@@ -122,7 +122,7 @@ class ConsoleWindow(SplitWindow):
         self.set_right_value("")
 
     def on_action(self):
-        qxapi.set_std_out(self.right_panel.widget)
+        qxapi.set_stdout(self.right_panel.widget)
         self.set_right_value("sending...")
         code = self.get_left_value()
         qxapi.send_lm(code)
@@ -143,7 +143,7 @@ class ChatConsole(ConsoleWindow):
         return "Chat Console"
 
     def on_action(self):
-        qxapi.set_std_out(self.right_panel.widget)
+        qxapi.set_stdout(self.right_panel.widget)
         self.set_right_value("sending...")
         code = self.get_left_value()
         qxapi.send_lm(code)
@@ -157,7 +157,7 @@ class PythonConsole(ConsoleWindow):
         return "Python Console"
 
     def on_action(self):
-        qxapi.set_std_out(self.right_panel.widget)
+        qxapi.set_stdout(self.right_panel.widget)
         self.clear_out()
         code = self.get_left_value()
         qxapi.eval_code(code)
