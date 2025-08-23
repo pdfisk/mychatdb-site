@@ -2,6 +2,7 @@ from browser import window
 import sys
 
 qxapi = window.QxApi
+lmapi = window.LmApi
 get_global = qxapi.get_global
 set_global = qxapi.set_global
 window.STDOUT = sys.stdout
@@ -142,11 +143,14 @@ class ChatConsole(ConsoleWindow):
     def default_caption(self):
         return "Chat Console"
 
+    def prn_result(self, text):
+        print('prn_result', self, text)
+
     def on_action(self):
         qxapi.set_stdout(self.right_panel.widget)
         self.set_right_value("sending...")
         code = self.get_left_value()
-        qxapi.send_lm(code)
+        lmapi.send(code, self.prn_result)
 
 
 class PythonConsole(ConsoleWindow):
@@ -155,9 +159,12 @@ class PythonConsole(ConsoleWindow):
 
     def default_caption(self):
         return "Python Console"
+    
+    def prn_result(self, text):
+        print('prn_result', self, text)
 
     def on_action(self):
         qxapi.set_stdout(self.right_panel.widget)
         self.clear_out()
         code = self.get_left_value()
-        qxapi.eval_code(code)
+        qxapi.send(code, self.prn_result)
